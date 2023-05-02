@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:seminar4/main.dart';
-import 'package:seminar4/third.dart';
+import 'package:seminar4/second.dart';
 
-class Second extends StatefulWidget {
-  const Second({super.key, required this.text});
+class Third extends StatelessWidget {
+  const Third({super.key, required this.text});
   final String text;
-  @override
-  State<Second> createState() => _SecondState();
-}
 
-class _SecondState extends State<Second> {
-  String txt = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,15 +16,10 @@ class _SecondState extends State<Second> {
         alignment: Alignment.center,
         padding: const EdgeInsets.symmetric(horizontal: 80),
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          TextField(
-            onChanged: (value) => setState(() {
-              txt = value;
-            }),
-          ),
           const SizedBox(
             height: 16,
           ),
-          Text(widget.text),
+          Text(text),
           const SizedBox(
             height: 16,
           ),
@@ -38,20 +28,23 @@ class _SecondState extends State<Second> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => Seminar4(text: txt)));
+                        builder: (context) => Seminar4(text: text)));
               },
-              child: const Text('Ask question')),
+              child: const Text('First')),
           const SizedBox(
             height: 16,
           ),
           TextButton(
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Third(text: txt)));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => Second(text: text)));
               },
-              child: const Text('Stateless')),
+              child: const Text('Second'))
         ]),
       ),
+      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
