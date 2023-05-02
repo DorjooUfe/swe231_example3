@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:seminar4/card.dart';
 import 'package:seminar4/second.dart';
-import 'package:seminar4/third.dart';
 
 void main() {
   runApp(const MyApp());
@@ -73,21 +73,11 @@ class _Seminar4State extends State<Seminar4> {
           const SizedBox(
             height: 16,
           ),
-          TextButton(
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Second(text: txt)));
-              },
-              child: const Text('Ask question')),
-          const SizedBox(
-            height: 16,
-          ),
-          TextButton(
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Third(text: txt)));
-              },
-              child: const Text('Stateless')),
+          CardWidget(
+              text: 'Second',
+              first: Second(
+                text: txt,
+              ))
         ]),
       ),
       // This trailing comma makes auto-formatting nicer for build methods.

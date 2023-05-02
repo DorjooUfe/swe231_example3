@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:seminar4/card.dart';
 import 'package:seminar4/main.dart';
-import 'package:seminar4/third.dart';
 
 class Second extends StatefulWidget {
   const Second({super.key, required this.text});
@@ -33,23 +33,11 @@ class _SecondState extends State<Second> {
           const SizedBox(
             height: 16,
           ),
-          TextButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => Seminar4(text: txt)));
-              },
-              child: const Text('Ask question')),
-          const SizedBox(
-            height: 16,
-          ),
-          TextButton(
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Third(text: txt)));
-              },
-              child: const Text('Stateless')),
+          CardWidget(
+              text: 'First',
+              first: Seminar4(
+                text: txt,
+              ))
         ]),
       ),
     );
